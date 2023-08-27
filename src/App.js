@@ -7,6 +7,12 @@ import Team from './components/Team';
 import Testimonial from './components/Testimonial';
 import Reservation from './components/Reservation';
 import Footer from './components/Footer';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+
+
+
+
 
 const App = () => {
   return (
@@ -16,7 +22,9 @@ const App = () => {
       <Menu />
       <Team />
       <Testimonial />
-      <Reservation />
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <Reservation />
+      </LocalizationProvider>
       <Footer />
       <div className='h-[380px] md:h-[370px]'></div>
     </div>

@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { reservationData } from '../data';
-import ReactDatePicker from 'react-datepicker';
-import { TimePicker } from 'react-time-picker';
-
 import 'react-datepicker/dist/react-datepicker.css';
 import '../timepicker.css';
 import { FaCalendar, FaClock, FaTiktok, FaUser, FaUsers } from 'react-icons/fa';
 import { AnimatePresence, motion } from 'framer-motion';
 import { fadeIn, staggerContainer } from '../variants';
+import { DatePicker, TimePicker } from '@mui/x-date-pickers';
+import TextField from '@mui/material/TextField';
 
 
 
@@ -44,7 +43,7 @@ const Reservation = () => {
                 <div><FaCalendar /> </div>
                 <div>Choose Date</div>
               </div>
-              <ReactDatePicker className='input'
+              <DatePicker
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
               />
@@ -55,7 +54,10 @@ const Reservation = () => {
                 <div><FaClock/> </div>
                 <div>Choose Time</div>
               </div>
-              
+              <TimePicker
+              selected={timeValue}
+              onChange={() => setTimeValue('10:00')}
+              />
             </div>
             {/* Personenumber */}
             <div>
@@ -63,7 +65,7 @@ const Reservation = () => {
                 <div><FaUsers /> </div>
                 <div>How many people?</div>
               </div>
-              <input  className='input' type='text' placeholder='1'/>
+              <TextField id="outlined-basic" placeholder='1' variant="outlined" />
             </div>
           </div>
           {/* Button */}
